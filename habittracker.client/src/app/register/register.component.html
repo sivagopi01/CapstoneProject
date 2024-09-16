@@ -1,0 +1,64 @@
+<div class="register d-flex justify-content-center align-items-center h-100 w-100">
+  <div class="card d-flex flex-column p-5 shadow m-3">
+    <h1>Habit Tracker</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="row">
+      <div class="col-6">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+        <div *ngIf="registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.touched || registerForm.get('firstName')!.dirty)" class="text-danger">
+          First Name is required.
+        </div>
+      </div>
+      <div class="col-6">
+        <label>Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" />
+        <div *ngIf="registerForm.get('lastName')!.invalid && (registerForm.get('lastName')!.touched || registerForm.get('lastName')!.dirty)" class="text-danger">
+          Last Name is required.
+        </div>
+      </div>
+      <div class="col-6">
+        <label>User Name</label>
+        <input type="text" class="form-control" formControlName="userName" />
+        <div *ngIf="registerForm.get('userName')!.invalid && (registerForm.get('userName')!.touched || registerForm.get('userName')!.dirty)" class="text-danger">
+          User Name is required.
+        </div>
+      </div>
+      <div class="col-6">
+        <label>Father's Name</label>
+        <input type="text" class="form-control" formControlName="fathersName" />
+      </div>
+      <div class="col-6">
+        <label>Gender</label>
+        <select class="form-control"
+                formControlName="gender">
+          <option>None</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+        <div *ngIf="registerForm.get('gender')!.invalid && (registerForm.get('gender')!.touched || registerForm.get('gender')!.dirty)" class="text-danger">
+          Gender is required.
+        </div>
+      </div>
+      <div class="col-6">
+        <label>Mobile Number</label>
+        <input type="number" class="form-control" formControlName="mobileNumber" />
+      </div>
+      <div class="col-6">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <div *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.touched || registerForm.get('password')!.dirty)" class="text-danger">
+          Password is required.
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-center align-items-center mt-3">
+        <button type="submit" class="btnPrimary shadow w-25">
+          {{this.id > 0 ? 'Submit' : 'Register'}}
+        </button>
+      </div>
+      <label class="fst-italic mb-3 text-end text-primary" (click)="onLogin()" *ngIf="!(this.id > 0)">
+        Already have an account?
+      </label>
+    </form>
+  </div>
+</div>

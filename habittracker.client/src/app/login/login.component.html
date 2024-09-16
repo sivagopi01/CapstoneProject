@@ -1,0 +1,35 @@
+<div class="login d-flex justify-content-center align-items-center h-100 w-100">
+  <div class="card d-flex flex-column p-5 shadow">
+    <h1>Habit Tracker</h1>
+    <form [formGroup]="loginForm" class="d-flex flex-column" (ngSubmit)="onLogin()">
+
+      <label>UserName/Email</label>
+      <input type="text"
+             class="form-control"
+             formControlName="userName" />
+      <div *ngIf="loginForm.get('userName')!.invalid && (loginForm.get('userName')!.touched || loginForm.get('userName')!.dirty)" class="text-danger">
+        UserName/Email is required.
+      </div>
+
+      <label>Password</label>
+      <input type="password"
+             class="form-control"
+             formControlName="password" />
+      <div *ngIf="loginForm.get('password')!.invalid && (loginForm.get('password')!.touched || loginForm.get('password')!.dirty)" class="text-danger">
+        Password is required.
+      </div>
+
+      <label class="fst-italic mb-3 text-primary"
+             (click)="forgotPwd()">Forgot Password?</label>
+      <div class="text-danger" *ngIf="isErrorShow">Invalid Credential!</div>
+      <button type="submit"
+              class="btnPrimary shadow"
+              (click)="onLogin()">
+        Login
+      </button>
+
+      <label class="fst-italic mb-3 text-end text-primary"
+             (click)="register()">Create Account</label>
+    </form>
+  </div>
+</div>

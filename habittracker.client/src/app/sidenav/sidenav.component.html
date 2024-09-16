@@ -1,0 +1,38 @@
+<div class="sidenav">
+  <div>
+    <h1 class="logo d-flex justify-content-center align-items-center">
+      <span class="material-symbols-outlined">
+        taunt
+      </span>
+      Habit Tracker
+    </h1>
+    <ul>
+      <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="dashboard">
+        <span class="material-symbols-outlined">home</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span>Home</span>
+      </li>
+      <li routerLink="habit"
+          routerLinkActive="active-link">
+        <span class="material-symbols-outlined">
+          sprint
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>Habit</span>
+      </li>
+      <li routerLink="profile"
+          routerLinkActive="active-link">
+        <span class="material-symbols-outlined">
+          account_circle
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>Profile</span>
+      </li>
+    </ul>
+  </div>
+  <div (click)="onLogout()"
+       routerLinkActive="active-link">
+    <span class="material-symbols-outlined">
+      logout
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>Log Out</span>
+  </div>
+</div>

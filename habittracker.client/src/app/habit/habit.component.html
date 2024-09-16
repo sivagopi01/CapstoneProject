@@ -1,0 +1,33 @@
+<div>
+  <button class="btnPrimary mb-2"
+          (click)="onManageHabit(0)">
+    <span class="material-symbols-outlined">add</span>&nbsp;
+    Add Habit
+  </button>
+  <table class="primaryTable">
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th></th>
+    </tr>
+    <tr *ngIf="habits.length == 0">
+      <td colspan="7">No Data Found</td>
+    </tr>
+    <tr *ngFor="let habit of habits; let i = index">
+      <td >{{i+1}}</td>
+      <td>{{habit.name}}</td>
+      <td>{{habit.description}}</td>
+      <td>{{habit.startDate | date:'dd-MM-yyyy'}}</td>
+      <td>{{habit.endDate | date:'dd-MM-yyyy'}}</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <span class="material-symbols-outlined cursor-pointer"
+              (click)="onManageHabit(habit.id!)">edit</span>&nbsp;
+        <span class="material-symbols-outlined cursor-pointer"
+              (click)="deleteHabit(habit.id!)">delete</span>&nbsp;
+      </td>
+    </tr>
+  </table>
+</div>

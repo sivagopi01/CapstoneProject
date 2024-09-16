@@ -1,0 +1,48 @@
+<h4 class="m-0">Manage Habit</h4>
+<form [formGroup]="habitForm" class="d-flex my-2">
+  <div class="card me-2 shadow">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <label>Habit Name</label>
+          <input type="text" formControlName="name" class="form-control" />
+          <div *ngIf="habitForm.get('name')!.invalid && (habitForm.get('name')!.touched || habitForm.get('name')!.dirty)" class="text-danger">
+            Habit Name is required.
+          </div>
+        </div>
+        <div class="col-12">
+          <label>Description</label>
+          <input type="text" formControlName="description" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <label>Start Date</label>
+          <input type="date" formControlName="startDate" class="form-control" />
+        </div>
+        <div class="col-12">
+          <label>End Date</label>
+          <input type="date" formControlName="endDate" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="card shadow">
+  <div class="card-body p-1">
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="btnPrimary" (click)="onSave()">
+        <span class="material-symbols-outlined">save</span>&nbsp;
+        Save
+      </button>&nbsp;&nbsp;
+      <button class="btnSecondary" (click)="onCancel()">
+        <span class="material-symbols-outlined">close</span>&nbsp;
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
